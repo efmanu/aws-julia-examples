@@ -16,9 +16,9 @@ delimitter = ""
 max_keys = 1000 # Inf to retrieves all keys
 continuation_token = ""
 
-data = S3.list_objects("ezygotestbucket"; aws_config=AWS_GLOBAL_CONFIG[])
+data = S3.list_objects("your-bucket"; aws_config=AWS_GLOBAL_CONFIG[])
 
-data = S3.create_bucket("ezygotestbucketnew",
+data = S3.create_bucket("your-bucket-new",
     Dict(
         "CreateBucketConfiguration" => Dict(
             "LocationConstraint" => aws_region,
@@ -50,7 +50,7 @@ head = merge!(
 )
 image_data = read("image.png")
 S3.put_object(
-    "ezygotestbucket", "/image.png", 
+    "your-bucket", "/image.png", 
     Dict(
         "body" => image_data,
         "headers" => head
