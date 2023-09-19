@@ -6,7 +6,7 @@ aws_region = get(ENV,"AWS_DEFAULT_REGION","us-east-1")
 
 const AWS_GLOBAL_CONFIG = Ref{AWS.AWSConfig}()
 creds = AWSCredentials(aws_access_key_id, aws_secret_access_key)
-# Retrieve the global AWS configuration. If one is not set, create one with default configuration options.
+
 AWS_GLOBAL_CONFIG[] = AWS.global_aws_config(region=aws_region, creds=creds)
 
 @service S3
